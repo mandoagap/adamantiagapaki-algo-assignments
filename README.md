@@ -1,2 +1,1 @@
 # adamantiagapaki-algo-assignments
-exercise
