@@ -34,18 +34,10 @@ def tiling(n, x, y, a, b, i, colors):
             grid[b+n//2-1][a+n//2] = colors[n][i % 3]
             grid[b+n//2][a+n//2] = colors[n][i % 3]
             grid[b+n//2][a+n//2-1] = colors[n][i % 3]
-        if x-a >= n//2 and y-b < n//2:
-            grid[b+n//2-1][a+n//2-1] = colors[n][i % 3]
-            grid[b+n//2][a+n//2] = colors[n][i % 3]
-            grid[b+n//2][a+n//2-1] = colors[n][i % 3]
         if x-a < n//2 and y-b >= n//2:
             grid[b+n//2-1][a+n//2-1] = colors[n][i % 3]
             grid[b+n//2-1][a+n//2] = colors[n][i % 3]
             grid[b+n//2][a+n//2] = colors[n][i % 3]
-        if x-a >= n//2 and y-b >= n//2:
-            grid[b+n//2-1][a+n//2-1] = colors[n][i % 3]
-            grid[b+n//2-1][a+n//2] = colors[n][i % 3]
-            grid[b+n//2][a+n//2-1] = colors[n][i % 3]
         return
 
     # Place Middle Tromino
@@ -58,14 +50,6 @@ def tiling(n, x, y, a, b, i, colors):
         grid[b+n//2-1][a+n//2] = current_color
         grid[b+n//2][a+n//2] = current_color
         grid[b+n//2][a+n//2-1] = current_color
-    if x-a >= n//2 and y-b < n//2:
-        grid[b+n//2-1][a+n//2-1] = current_color
-        grid[b+n//2][a+n//2] = current_color
-        grid[b+n//2][a+n//2-1] = current_color
-    if x-a < n//2 and y-b >= n//2:
-        grid[b+n//2-1][a+n//2-1] = current_color
-        grid[b+n//2-1][a+n//2] = current_color
-        grid[b+n//2][a+n//2] = current_color
     if x-a >= n//2 and y-b >= n//2:
         grid[b+n//2-1][a+n//2-1] = current_color
         grid[b+n//2-1][a+n//2] = current_color
