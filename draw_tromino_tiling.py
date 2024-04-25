@@ -1,4 +1,4 @@
-from tromino_tilling import tilling  # Corrected function name import
+from draw_tromino_tiling import tilling  # Corrected function name import
 from PIL import Image, ImageDraw
 import re
 
