@@ -16,3 +16,22 @@ def create_image(grid, filename):  # Added grid as argument
 
     image.save(filename)
     image.show()
+
+
+
+def extract_grid_size_from_filename(filename):
+    match = re.search(r'_([0-9]+)x([0-9]+)\.png$', filename)
+    if match:
+        width = int(match.group(1))
+        height = int(match.group(2))
+        return width, height
+    else:
+        return None
+
+filename = "tromino_tiling_image_4x4.png"
+grid_width, grid_height = extract_grid_size_from_filename(filename)
+print("Grid size extracted from filename:", grid_width, "x", grid_height)
+
+# Now let's call the create_image function with the correct grid size
+grid = [['X', 'R', 'R', 'B'], ['R', 'G', 'G', 'B'], ['R', 'G', 'G', 'B'], ['R', 'R', 'B', 'X']]
+create_image(grid, filename)
