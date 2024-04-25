@@ -1,4 +1,3 @@
-from draw_tromino_tiling import tilling  # Corrected function name import
 from PIL import Image, ImageDraw
 import re
 
@@ -27,7 +26,7 @@ def extract_grid_size_from_filename(filename):
     else:
         return None
 
-filename = "tromino_tiling_image_4x4.png"
+filename = "tromino_tiling_grid_16x16.txt"
 grid_width, grid_height = extract_grid_size_from_filename(filename)
 print("Grid size extracted from filename:", grid_width, "x", grid_height)
 
