@@ -18,7 +18,6 @@ def create_image(grid, filename):  # Added grid as argument
     image.show()
 
 
-
 def extract_grid_size_from_filename(filename):
     match = re.search(r'_([0-9]+)x([0-9]+)\.png$', filename)
     if match:
