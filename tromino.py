@@ -30,6 +30,14 @@ def tilling(n, x, y, a, b, i, colors):
     if n == 2:
         if n not in colors:
             colors[n] = ['R', 'G', 'B']
+        if x-a < n//2 and y-b < n//2:
+            grid[b+n//2-1][a+n//2] = colors[n][i % 3]
+            grid[b+n//2][a+n//2] = colors[n][i % 3]
+            grid[b+n//2][a+n//2-1] = colors[n][i % 3]
+        if x-a >= n//2 and y-b < n//2:
+            grid[b+n//2-1][a+n//2-1] = colors[n][i % 3]
+            grid[b+n//2][a+n//2] = colors[n][i % 3]
+            grid[b+n//2][a+n//2-1] = colors[n][i % 3]
         if x-a < n//2 and y-b >= n//2:
             grid[b+n//2-1][a+n//2-1] = colors[n][i % 3]
             grid[b+n//2-1][a+n//2] = colors[n][i % 3]
@@ -46,7 +54,11 @@ def tilling(n, x, y, a, b, i, colors):
     current_color = colors[n][i % 3]
 
     
-    #if x-a >= n//2 and y-b < n//2:
+    if x-a < n//2 and y-b < n//2:
+        grid[b+n//2-1][a+n//2] = current_color
+        grid[b+n//2][a+n//2] = current_color
+        grid[b+n//2][a+n//2-1] = current_color
+    if x-a >= n//2 and y-b < n//2:
         grid[b+n//2-1][a+n//2-1] = current_color
         grid[b+n//2][a+n//2] = current_color
         grid[b+n//2][a+n//2-1] = current_color
@@ -54,6 +66,10 @@ def tilling(n, x, y, a, b, i, colors):
         grid[b+n//2-1][a+n//2-1] = current_color
         grid[b+n//2-1][a+n//2] = current_color
         grid[b+n//2][a+n//2] = current_color
+    if x-a >= n//2 and y-b >= n//2:
+        grid[b+n//2-1][a+n//2-1] = current_color
+        grid[b+n//2-1][a+n//2] = current_color
+        grid[b+n//2][a+n//2-1] = current_color
 
     i += 1
     # Recursion
@@ -67,7 +83,16 @@ def tilling(n, x, y, a, b, i, colors):
         tilling(n//2, x, y, a+n//2, b, i, colors)
         tilling(n//2, a+n//2, b+n//2, a+n//2, b+n//2, i, colors)
         tilling(n//2, a+n//2-1, b+n//2, a, b+n//2, i, colors)
-
+    if x-a >= n//2 and y-b >= n//2:
+        tilling(n//2, a+n//2-1, b+n//2-1, a, b, i, colors)
+        tilling(n//2, a+n//2, b+n//2-1, a+n//2, b, i, colors)
+        tilling(n//2, x, y, a+n//2, b+n//2, i, colors)
+        tilling(n//2, a+n//2-1, b+n//2, a, b+n//2, i, colors)
+    if x-a < n//2 and y-b >= n//2:
+        tilling(n//2, a+n//2-1, b+n//2-1, a, b, i, colors)
+        tilling(n//2, a+n//2, b+n//2-1, a+n//2, b, i, colors)
+        tilling(n//2, a+n//2, b+n//2, a+n//2, b+n//2, i, colors)
+        tilling(n//2, x, y, a, b+n//2, i, colors)
 
 # Visualize the output of matrix filled with R or G or B
 def show():
